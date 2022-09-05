@@ -11,4 +11,10 @@ terraform {
       configuration_aliases = [aws.ct_management, aws.log_archive, aws.audit, aws.aft_management, aws.tf_backend_secondary_region]
     }
   }
+
+  backend "s3" {
+    encrypt = "true"
+    key     = "tf-aft/terraform.tfstate"
+  }  
+  
 }

@@ -6,6 +6,7 @@
 #########################################
 variable "ct_management_account_id" {
   description = "Control Tower Management Account Id"
+  default = "608493479687"
   type        = string
   validation {
     condition     = can(regex("^\\d{12}$", var.ct_management_account_id))
@@ -14,6 +15,7 @@ variable "ct_management_account_id" {
 }
 variable "log_archive_account_id" {
   description = "Log Archive Account Id"
+  default = "794175901837"
   type        = string
   validation {
     condition     = can(regex("^\\d{12}$", var.log_archive_account_id))
@@ -22,6 +24,7 @@ variable "log_archive_account_id" {
 }
 variable "audit_account_id" {
   description = "Audit Account Id"
+  default = "780197779177"
   type        = string
   validation {
     condition     = can(regex("^\\d{12}$", var.audit_account_id))
@@ -51,6 +54,7 @@ variable "aft_framework_repo_git_ref" {
 
 variable "aft_management_account_id" {
   description = "AFT Management Account ID"
+  default = "274805770058"
   type        = string
   validation {
     condition     = can(regex("^\\d{12}$", var.aft_management_account_id))
@@ -60,6 +64,7 @@ variable "aft_management_account_id" {
 
 variable "ct_home_region" {
   description = "The region from which this module will be executed. This MUST be the same region as Control Tower is deployed."
+  default = "eu-west-1"
   type        = string
   validation {
     condition     = can(regex("(us(-gov)?|ap|ca|cn|eu|sa)-(central|(north|south)?(east|west)?)-\\d", var.ct_home_region))
@@ -271,6 +276,7 @@ variable "terraform_distribution" {
 variable "tf_backend_secondary_region" {
   type        = string
   description = "AFT creates a backend for state tracking for its own state as well as OSS cases. The backend's primary region is the same as the AFT region, but this defines the secondary region to replicate to."
+  default = "eu-west-2"
   validation {
     condition     = can(regex("(us(-gov)?|ap|ca|cn|eu|sa)-(central|(north|south)?(east|west)?)-\\d", var.tf_backend_secondary_region))
     error_message = "Variable var: tf_backend_secondary_region is not valid."
